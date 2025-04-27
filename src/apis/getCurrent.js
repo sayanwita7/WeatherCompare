@@ -9,12 +9,12 @@ export async function getCurrentInfo() {
       }
   
       const json = await response.json();
-      console.log(`Today: 
-        Maximum : ${json.daily.temperature_2m_max[0]}${json.daily_units.temperature_2m_max} 
-        Minimum : ${json.daily.temperature_2m_min[0]}${json.daily_units.temperature_2m_min}
-        UV Index: ${json.daily.uv_index_max[0]}
-        Cloud cover: ${json.daily.cloud_cover_mean} ${json.daily_units.cloud_cover_mean}
-        Precipitation: ${json.daily.precipitation_probability_mean} ${json.daily_units.precipitation_probability_mean}`);
+      // console.log(`Today: 
+      //   Maximum : ${json.daily.temperature_2m_max[0]}${json.daily_units.temperature_2m_max} 
+      //   Minimum : ${json.daily.temperature_2m_min[0]}${json.daily_units.temperature_2m_min}
+      //   UV Index: ${json.daily.uv_index_max[0]}
+      //   Cloud cover: ${json.daily.cloud_cover_mean} ${json.daily_units.cloud_cover_mean}
+      //   Precipitation: ${json.daily.precipitation_probability_mean} ${json.daily_units.precipitation_probability_mean}`);
       return [json.daily.temperature_2m_max[0], json.daily.temperature_2m_min[0],json.daily.uv_index_max[0],json.daily.cloud_cover_mean,json.daily.precipitation_probability_mean] 
     } catch (error) {
       console.error(error.message);
