@@ -3,8 +3,8 @@ export async function latLong() {
       return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            //console.log("Latitude: " + position.coords.latitude);
-            //console.log("Longitude: " + position.coords.longitude);
+            console.log("Latitude: " + position.coords.latitude);
+            console.log("Longitude: " + position.coords.longitude);
             resolve([position.coords.latitude, position.coords.longitude]);
           },
           (error) => {

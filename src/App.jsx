@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import {getCurrentInfo} from './apis/getCurrent.js'
 import { getPastInfo } from './apis/getPast.js'
+import { address } from './apis/address.js'
 
 function App() {
   const [currTempMin, setCurrTempMin] = useState(0)
@@ -28,6 +29,7 @@ function App() {
     setPastTempMax(pastTemp[0]);
     setPastUvIndex(pastTemp[2]);
     setPastCloudCover(pastTemp[3]);
+    address();
   }
 
   useEffect(() => {
@@ -40,9 +42,8 @@ function App() {
   const fPast = past.toLocaleDateString("en-IN");
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-b from-blue-200 to-blue-400 flex flex-col items-center justify-center p-6">
-      <img src="https://cdn-icons-png.flaticon.com/256/6643/6643157.png"  alt="Logo" className="fixed top-4 left-4 w-12 h-12 object-contain z-50"/>
-        <div className="grid gap-6 md:grid-cols-1 w-full max-w-4xl">
+      <div className="min-h-screen w-full pt-20 pb-1 p-6">
+        <div className="grid gap-2 md:grid-cols-1">
           {/* Current Weather */}
           <div className="bg-white rounded-2xl shadow-xl p-6 bg-gradient-to-b from-cyan-300 to-purple-200">
             <h2 className="text-xl font-bold text-blue-700 mb-4">Today's Weather: {today}</h2>
@@ -79,13 +80,7 @@ function App() {
               <strong>Cloud cover:</strong> <span id="cloudPast">{pastCloudCover}</span>%
             </p>
           </div>
-        </div>
-      <br/>
-      <br/>
-      <h1 className="italic font-serif text-white">Comparison is the thief of joy!</h1>
-      <h2 className="italic font-serif text-white">-Sayanwita Dey, 2025 (Probably)</h2>
-      <img src="https://i.fbcd.co/products/resized/resized-750-500/2110-winking-emoji-mainpreview-896e7321e3bb7dc667fedc9eb6f44e66404dfb6c74a490ea0470f382602a2529.jpg"  alt="Logo" className="bottom-4 right-4 w-12 h-12 object-contain z-50"/>
-      
+        </div>  
       </div>
 
     </>
